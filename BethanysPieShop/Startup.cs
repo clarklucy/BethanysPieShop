@@ -42,7 +42,7 @@ namespace BethanysPieShop
                 //middleware to show the developer exception page
             }
             app.UseHttpsRedirection(); //redirects http to https
-            app.UseStaticFiles(); //can serve static files e.g. images, css, javascript. By default searches directory wwroot for static files
+            app.UseStaticFiles(); //can serve static files e.g. images, css, javascript. By default searches directory wwwroot for static files
             app.UseRouting();
             
             app.UseEndpoints(endpoints =>
