@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BethanysPieShop.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -14,6 +15,7 @@ namespace BethanysPieShop
     {
         //the methods in the startup class are called automatically by asp.net core and called by name - not overrides
         public void ConfigureServices(IServiceCollection services)
+            //container
             //IServiceCollection is the Dependency Injection service that comes with asp.net core
             //register services here that we want to use in our application (dependency injection)
         {
@@ -21,6 +23,10 @@ namespace BethanysPieShop
             services.AddControllersWithViews(); //support for MVC - before written as AddMvc
 
             //register our own services
+            //AddTransient, AddSingleton, AddScoped - registration options based on the way objects are created and how long they live
+            services.AddScoped<IPieRepository, MockPieRepository>();
+            services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +53,7 @@ namespace BethanysPieShop
 
 
                 //------------------------------------------
-                //---original code -- response to every request is to write "hello world!"
+                //---original code, response to every request is to write "hello world!"
                 //endpoints.MapGet("/", async context =>
                 //{
                 //    await context.Response.WriteAsync("Hello World!");
