@@ -17,10 +17,11 @@ namespace BethanysPieShop
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+            Host.CreateDefaultBuilder(args) //generic host, WebHost used in Core .2.1
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                                //type 'Startup' passed to the UseStartup method -- "The type containing the startup methods for the application".
                 });
     }
 }
