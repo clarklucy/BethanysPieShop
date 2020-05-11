@@ -32,6 +32,8 @@ namespace BethanysPieShop
             services.AddDbContext<AppDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews(); //support for MVC - before written as AddMvc
+            services.AddHttpContextAccessor();
+            services.AddSession();
 
             //register our own services
             //AddTransient, AddSingleton, AddScoped - registration options based on the way objects are created and how long they live
@@ -43,6 +45,8 @@ namespace BethanysPieShop
             //----- registration of real repositories as services
             services.AddScoped<IPieRepository, PieRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+           
 
         }
 
@@ -60,7 +64,9 @@ namespace BethanysPieShop
             }
             app.UseHttpsRedirection(); //redirects http to https
             app.UseStaticFiles(); //can serve static files e.g. images, css, javascript. By default searches directory wwwroot for static files
+            app.UseSession();
             app.UseRouting();
+            
             
             app.UseEndpoints(endpoints =>
             {
