@@ -9,7 +9,7 @@ namespace BethanysPieShop.Models
     public class AppDbContext : DbContext        
     {
         //DbContext must have an instance of DbContextOptions for it to execute - see ctor below
-        public AppDbContext(DbContextOptions<AppDbContext>options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }

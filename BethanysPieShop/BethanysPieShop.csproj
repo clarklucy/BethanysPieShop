@@ -5,11 +5,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200511112453_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200511112453_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200511112835_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200511112835_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200511113330_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200511113330_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200511114607_Initial.cs" />
+    <Compile Remove="Migrations\20200511114607_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200511115431_Initial.cs" />
+    <Compile Remove="Migrations\20200511115431_Initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
