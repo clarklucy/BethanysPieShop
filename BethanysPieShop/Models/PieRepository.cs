@@ -30,9 +30,9 @@ namespace BethanysPieShop.Models
                 return _appDbContext.Pies.Include(c => c.Category).Where(p => p.IsPieOfTheWeek);
             }
         }
-        public Pie GetPieById(int PieId)
+        public Pie GetPieById(int pieId)
         {
-            return _appDbContext.Pies.FirstOrDefault(p => p.PieId == PieId);
+            return _appDbContext.Pies.FirstOrDefault(p => p.PieId == pieId);
         }
     }
 }

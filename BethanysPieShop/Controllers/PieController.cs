@@ -36,5 +36,13 @@ namespace BethanysPieShop.Controllers
 
             return View(piesListViewModel); //this is now the ViewData.Model property of the view result being returned
         }
+
+        public IActionResult Details (int id)
+        {
+            var pie = _pieRepository.GetPieById(id);
+            if (pie == null)
+                return NotFound();
+            return View(pie);
+        }
     }
 }
